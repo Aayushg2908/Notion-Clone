@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import {
   ChevronsLeft,
   MenuIcon,
+  Plus,
   PlusCircle,
   Search,
   Settings,
@@ -16,6 +17,7 @@ import { toast } from "sonner";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Item } from "./item";
+import { DocumentList } from "./document-list";
 
 export const Navigation = () => {
   const router = useRouter();
@@ -142,7 +144,10 @@ export const Navigation = () => {
           <Item label="Settings" icon={Settings} onClick={() => {}} />
           <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
-        <div className="mt-4">Documents</div>
+        <div className="mt-4">
+          <DocumentList />
+          <Item onClick={handleCreate} icon={Plus} label="Add a page" />
+        </div>
         <div
           onMouseDown={handleMouseDown}
           onClick={resetWidth}
